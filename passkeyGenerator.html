@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"  >
+  <title> Passkey Generator </title>
+</head>
+<style type="text/css">
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  padding: 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100vw;
+  height:100vh;
+}
+.content{
+  width: 70vw;
+  height: 20vh;
+  background: transparent;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  border: 1px solid coral;
+ 
+}
+#screen{
+  background: #fff ;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+button{
+  border: none;
+  background: darkcyan;
+  font-weight: bolder;
+  color: #fff;
+}
+
+
+</style>
+<body>
+  
+ <div class="content">
+   <div id="screen">  </div>
+   <button id="gen"> Generate Key </button>
+ </div>
+ 
+ <script type="text/javascript">
+ var capAlpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+ var lowAlpha = 'abcdefghijklmnopqrstuvwxyz'
+ var sign = '@$&/+!?'
+ var digit = [1,2,3,4,5,6,7,8,9]
+ var generate = document.querySelector('#gen')
+ var screen = document.querySelector('#screen')
+ 
+ // Get random values 
+ var rndCapAlpha = Math.floor(Math.random() * 26)
+ var rndSign = Math.floor(Math.random() * 7)
+ var rnddigit = Math.floor(Math.random() * 9)
+ 
+ 
+ generate.onclick = () =>{
+ 
+  screen.innerHTML = capAlpha[rnddigit] + capAlpha[rndSign*2] + lowAlpha[rndCapAlpha - 2] + sign[rndSign] + digit[rnddigit]
+ 
+ }
+ 
+ 
+ /*
+ // Med val
+ var capLength = capAlpha.length
+ var capAlphaMedPos = (Math.ceil(( (capLength/2) + ((capLength + 2)/2) )/2))
+ 
+ var toRight = capAlpha.substr(capAlphaMedPos,2)
+ var toLeft = capAlpha.substr(-(capAlphaMedPos),2)
+ 
+ */  
+ </script>
+ </body>
+ </html>
